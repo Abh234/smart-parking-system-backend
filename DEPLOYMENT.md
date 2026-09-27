@@ -7,6 +7,15 @@
 - API: Render Web Service, using `backend/` as the root directory and Gunicorn as the WSGI server.
 - Database: managed MySQL with a network endpoint reachable from Render.
 
+## Current deployment
+
+- Frontend: https://neon-gingersnap-8f54e4.netlify.app/
+- API: https://smart-parking-system-backend-uudr.onrender.com
+- API health check: https://smart-parking-system-backend-uudr.onrender.com/test
+- Render is configured to allow requests from the Netlify origin above.
+- The API service is live, but no MySQL connection is configured yet. Database-backed endpoints currently return a database connection error until `DB_HOST`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME` are set in Render and the schema is imported into that MySQL database.
+- Netlify was deployed with Netlify Drop, so it is not connected to GitHub for automatic deploys. Upload the `frontend/` folder again after frontend changes, or connect the site to the GitHub repository in Netlify for continuous deployment.
+
 ## Before deployment
 
 1. Create an empty MySQL database named `parksmart` on your database provider.
